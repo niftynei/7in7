@@ -5,11 +5,15 @@ trait Nice{
 }
 
 trait Evil{
-	def shortChange() = println("robbing your bank, yo!")
+	def beEvil() = println("robbing your bank, yo!")
 } 
+trait Humane{
+	def beHuman() = println("emote")
+}
 
-class Character(override val name:String) extends Person(name) with Nice with Evil
+class Character(override val name:String) extends Person(name) with Nice with Evil with Humane
 
 val flanders = new Character("Ned")
 flanders.greet
-flanders.shortChange
+flanders.beEvil
+flanders.beHuman
